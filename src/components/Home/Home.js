@@ -2,9 +2,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
+import withStyles from '@material-ui/core/styles/withStyles';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Helmet from 'react-helmet';
 import AppFooter from './Footer';
 import styles from './styles';
@@ -31,8 +31,8 @@ function PageHome(props) {
         <div className={classes.content}>
 
           <div className={classes.text}>
-            <Typography type="display1" component="h1" color="inherit" noWrap style={{marginBottom: 24}}>Metadata hello world</Typography>
-            <Typography type="subheading" component="h2" color="inherit" className={classes.headline}>
+            <Typography variant="display1" component="h1" color="inherit" noWrap style={{marginBottom: 24}}>Metadata hello world</Typography>
+            <Typography variant="subheading" component="h2" color="inherit" className={classes.headline}>
               Каркас приложения на metadata.js<br/> для демонстрации базовых возможностей фреймворка
             </Typography>
             <Button className={classes.button} variant="raised" onClick={() => handleNavigate('/help')}>Начать</Button>

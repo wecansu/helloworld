@@ -1,12 +1,12 @@
 import React from 'react';
-import IconChart from 'material-ui-icons/InsertChart';
-import IconDoc from 'material-ui-icons/EventNote';
-import IconInfo from 'material-ui-icons/Info';
-import IconHelp from 'material-ui-icons/Help';
-import IconPerson from 'material-ui-icons/Person';
-import IconSettings from 'material-ui-icons/Settings';
-// import IconDrafts from 'material-ui-icons/Drafts';
-// import IconList from 'material-ui-icons/List';
+import IconChart from '@material-ui/icons/InsertChart';
+import IconDoc from '@material-ui/icons/EventNote';
+import IconInfo from '@material-ui/icons/Info';
+import IconHelp from '@material-ui/icons/Help';
+import IconPerson from '@material-ui/icons/Person';
+import IconSettings from 'metadata-react/styles/Setting';
+// import IconDrafts from '@material-ui/icons/Drafts';
+// import IconList from '@material-ui/icons/List';
 
 const items = [
   {
@@ -88,8 +88,14 @@ export function item_props(path) {
   if(!path){
     path = location.pathname;
   }
+  if(path.endsWith('/')) {
+    path = path.substr(0, path.length - 1);
+  }
   // здесь можно переопределить нужность meta и авторизованности для корневой страницы
   let res = with_recursion(path, items);
+  if(!res && path.indexOf('/') !== -1) {
+    res = with_recursion(path.substr(0, path.lastIndexOf('/')), items);
+  }
   if(!res && path.match(/\/(doc|cat|ireg|cch|rep)\./)){
     res = {need_meta: true, need_user: true};
   }

@@ -2,9 +2,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import Grid from 'material-ui/Grid';
+import withStyles from '@material-ui/core/styles/withStyles';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 const styleSheet = theme => ({
   root: {
@@ -30,8 +30,8 @@ function AppFooter(props) {
   return (
     <footer className={classes.root}>
       <div className={classes.layout}>
-        <Typography type="title" gutterBottom>Быстрые ссылки</Typography>
-        <Typography type="subheading" component="div">
+        <Typography variant="title" gutterBottom>Быстрые ссылки</Typography>
+        <Typography variant="subheading" component="div">
           <Grid container spacing={0}>
             <Grid item xs={12} sm={6}>
               <ul className={classes.list}>
